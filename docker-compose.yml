@@ -5,7 +5,7 @@ services:
     restart: always
 
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: home_energy_tracker
 
 
@@ -13,7 +13,7 @@ services:
       - "3307:3306"
 
     volumes:
-      - .docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/mysql
       - db-data:/var/log/mysql
 
